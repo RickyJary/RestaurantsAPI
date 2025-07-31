@@ -5,12 +5,13 @@ const {getHome} = require('../controllers/misc.controllers');
 const {createRestaurant, getRestaurants, getRestaurantById, updateRestaurant, deleteRestaurant} = require('../controllers/restaurant.controllers');
 const { login } = require('../controllers/auth.controller');
 const { isAuthenticated } = require('../middlewares/auth.middleware');
+const upload = require("../config/storage.config");
 
 /* MISC */
 router.get('/', getHome);
 
 /* AUTH */
-router.post("login", login);
+router.post("/login", login);
 
 /*RESTAURANTS*/
 router.post('/restaurants', isAuthenticated, upload.single("imageUrl"), createRestaurant);
