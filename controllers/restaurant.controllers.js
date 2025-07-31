@@ -3,7 +3,8 @@ const Restaurant = require('../models/Restaurant.model');
 module.exports.createRestaurant = async (req, res, next) => {
   try {
     const { name, description, style, location } = req.body;
-    const newRestaurant = await Restaurant.create({ name, description, style, location });
+    const imageUrl = req.file?.path || "";
+    const newRestaurant = await Restaurant.create({ name, description, style, location, imageUrl });
     res.status(201).json(newRestaurant);
   } catch (error) {
     console.error("Error al crear restaurante:", error.message);
