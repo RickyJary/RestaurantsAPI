@@ -15,7 +15,7 @@ require("./config/db.config");
 
 app.use(
   cors({
-    origin: "https://restaurants-frontend-six.vercel.app/",
+    origin: "https://restaurants-frontend-six.vercel.app",
     credentials: true,
   })
 );
